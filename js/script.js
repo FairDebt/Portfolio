@@ -154,4 +154,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+  document.addEventListener("DOMContentLoaded", function () {
+      let videos = document.querySelectorAll(".lazy-video");
+      videos.forEach(video => {
+        video.load();
+      });
+    });
 });
