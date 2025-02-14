@@ -96,75 +96,146 @@ body, html {
 
 /* Section Styling */
 #contents {
-    padding: 50px 20px;
+    padding: 60px 20px;
     text-align: center;
     background-color: #ffffff;
 }
 
 /* Section Title */
 .section-title h2 {
-    font-size: 2rem;
-    color: #333;
+    font-size: 2.2rem;
+    color: #222;
     margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .section-title p {
     font-size: 1.2rem;
-    color: #666;
+    color: #555;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.5;
 }
 
-/* Service Boxes */
+/* Service Boxes - Modern Glassmorphism Style */
 .service-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
+    gap: 25px;
+    margin-top: 40px;
 }
 
 .service-box {
-    background-color: #ffffff;
-    border: 2px solid #028285;
-    padding: 20px;
-    width: 45%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease-in-out;
-    text-align: left;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: #0a0a0a;
+    padding: 25px;
+    width: 40%;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adding a gradient border animation */
+.service-box::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #37A6A9, #006d6f);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.service-box:hover::before {
+    opacity: 1;
 }
 
 .service-box:hover {
-    transform: translateY(-5px);
-    border-color: #fca61f;
+    transform: translateY(-8px);
 }
 
 .service-box h3 {
-    font-size: 1.5rem;
-    color: #028285;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    font-weight: bold;
 }
 
-.service-box p {
+.service-box p,
+.service-box ul li {
     font-size: 1rem;
-    color: #444;
+    margin-bottom: 8px;
+    opacity: 0.9;
 }
-
 .service-box ul {
-    list-style-type: none;
-    padding-left: 10px;
+    list-style: none;
+    padding: 0;
+    text-align: center; /* Centers text */
 }
 
 .service-box ul li {
+    display: block;
     font-size: 1rem;
-    color: #555;
-    padding-left: 20px;
-    position: relative;
+    margin-bottom: 5px;
 }
 
-.service-box ul li::before {
-    content: "✔";
-    color: #028285;
-    position: absolute;
-    left: 0;
+/* Read More Button */
+.read-more-btn {
+    background: linear-gradient(135deg, #ff7b00, #ffb700);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    margin-top: 12px;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s;
 }
+
+.read-more-btn:hover {
+    background: linear-gradient(135deg, #ffb700, #ff7b00);
+    transform: scale(1.05);
+}
+
+/* More Content (Initially Hidden) */
+.more-content {
+    display: none;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    border-radius: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .service-box {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-box {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
 
 /* Company Info */
 .company-info {
@@ -403,6 +474,46 @@ body, html {
     border-radius: 0.7rem;
 }
 
+/* Case Studies Section */
+.case-studies {
+    background-color: #f8f9fa;
+}
+
+.case-study-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.case-study-card {
+    width: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.case-study-card img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.case-study-card h4 {
+    color: #3f396d;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.case-study-card p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+
 
 /* About Section */
 .about {
@@ -418,6 +529,26 @@ body, html {
 .section-title h2 {
     font-size: 2em;
     color: #333;
+}
+
+.check-icon {
+    color: #028285;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #028285;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    background: #026b68;
 }
 
 .section-title p {
@@ -629,25 +760,48 @@ ul li {
 }
 
 /* Contact form */
-.contact-details i {
-    font-size: 1.5rem;
-    color: #007bff;
-}
-
-.contact-details p {
-    font-size: 1.2rem;
-    margin-left: 1rem;
-}
-
-.contact-form .form-control:focus {
-    box-shadow: none;
-    border: 1px solid #007bff;
-}
-
-.contact-form .form-control {
-    padding: 10px 10px;
-    width: 80%;
-}
+.contact {
+    background: #f8f9fa;
+  }
+  
+  .contact-card {
+    background: white;
+    border-radius: 10px;
+  }
+  
+  .contact-form {
+    background: white;
+    border-radius: 10px;
+  }
+  
+  .form-control {
+    border: 2px solid #ced4da;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
+  }
+  
+  .btn-primary {
+    background: #007bff;
+    border: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background: #0056b3;
+  }
+  
+  .contact-card i {
+    transition: transform 0.3s;
+  }
+  
+  .contact-card i:hover {
+    transform: scale(1.1);
+  }
+  
 
 /* Footer section starts */
 .footer {
@@ -736,7 +890,7 @@ ul li {
     color: #1f7bfc;
 }
 
-.footer-section.contact a a:hover {
+.footer-section.contactus a a:hover {
     color: #1f7bfc;
 }
 
@@ -780,7 +934,7 @@ ul li {
 }
 
 /* Contact Section */
-.footer-section.contact p {
+.footer-section.contactus p {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -788,7 +942,7 @@ ul li {
     text-align: center;
 }
 
-.footer-section.contact i {
+.footer-section.contactus i {
     color: #1f7bfc;
 }
 
@@ -929,7 +1083,7 @@ ul li {
     font-weight: bold;
 }
 
-.services-container {
+/* .services-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -972,6 +1126,69 @@ ul li {
 .service-card p {
     font-size: 1rem;
     color: #333;
+} */
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.service-card h4 {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.read-more-content {
+    display: none;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+.read-more-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 /* Responsive Design */
