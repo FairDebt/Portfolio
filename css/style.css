@@ -152,7 +152,7 @@ body, html {
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     border-radius: 12px;
-    background: linear-gradient(135deg, #37A6A9, #006d6f);
+    background: linear-gradient(135deg, #83a8a9, #69e4e6);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -510,6 +510,7 @@ body, html {
         width: 30%;
     }
 }
+
 .case-study-card img {
     width: 50%;
     height: auto;
@@ -1250,3 +1251,21 @@ ul li {
       text-align: center !important;
     }
   }
+
+  .read-more {
+    display: block;
+    width: fit-content;
+    margin: 20px auto; /* Centers horizontally */
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Blue background */
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.read-more:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
