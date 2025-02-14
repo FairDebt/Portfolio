@@ -141,15 +141,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.querySelectorAll('.read-more-btn').forEach(button => {
-  button.addEventListener('click', function() {
-      const content = this.nextElementSibling;
-      if (content.style.display === 'block') {
-          content.style.display = 'none';
-          this.textContent = 'Read More';
-      } else {
-          content.style.display = 'block';
-          this.textContent = 'Read Less';
-      }
-  });
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.read-more-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const content = this.nextElementSibling;
+            if (window.getComputedStyle(content).display === 'none') {
+                content.style.display = 'block';
+                this.textContent = 'Read Less';
+            } else {
+                content.style.display = 'none';
+                this.textContent = 'Read More';
+            }
+        });
+    });
 });
