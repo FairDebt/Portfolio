@@ -487,14 +487,29 @@ body, html {
 }
 
 .case-study-card {
-    width: 30%;
+    width: 100%;
+    max-width: 400px; /* Ensures it doesn’t get too large on big screens */
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin: 0 auto; /* Centers the card */
 }
 
+/* Adjust for tablets */
+@media (min-width: 768px) {
+    .case-study-card {
+        width: 45%;
+    }
+}
+
+/* Adjust for desktops */
+@media (min-width: 1024px) {
+    .case-study-card {
+        width: 30%;
+    }
+}
 .case-study-card img {
     width: 50%;
     height: auto;
