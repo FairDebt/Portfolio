@@ -494,34 +494,36 @@
     });
   </script>
 
+
+  //JavaScrift for Hero section Lazy-video
   <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const videos = document.querySelectorAll(".lazy-video");
     const carousel = document.getElementById("hero-carousel");
+    const videos = document.querySelectorAll(".lazy-video");
 
     function playActiveVideo() {
-      // Pause all videos first
       videos.forEach(video => {
-        video.pause();
-        video.currentTime = 0; // Reset to start for a smoother loop
+        video.pause(); // Pause all videos
+        video.currentTime = 0; // Reset to start to ensure smooth looping
       });
 
-      // Find the active slide's video and play it
-      const activeSlide = document.querySelector(".carousel-item.active video");
-      if (activeSlide) {
-        setTimeout(() => {
+      // Get active slide video after transition
+      setTimeout(() => {
+        const activeSlide = document.querySelector(".carousel-item.active video");
+        if (activeSlide) {
           activeSlide.play();
-        }, 100); // Small delay to ensure smooth playback
-      }
+        }
+      }, 500); // Short delay to ensure smooth transition
     }
 
-    // Event listener for Bootstrap v5 (use 'slide.bs.carousel' for v4)
+    // Play video when carousel changes slide
     carousel.addEventListener("slid.bs.carousel", playActiveVideo);
 
-    // Ensure the first video starts playing when the page loads
+    // Start playing the first video immediately
     playActiveVideo();
   });
 </script>
+
 
 
     <!-- Back to Top Button -->
