@@ -962,6 +962,32 @@ ul li {
     color: #1f7bfc;
 }
 
+@media (max-width: 768px) {
+    .footer-sections {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        max-width: 100%;
+    }
+
+    .footer-section ul {
+        padding-left: 0;
+    }
+
+    .footer-section ul li {
+        display: block; /* Ensure list items are visible */
+    }
+
+    .footer-section ul li a {
+        display: inline-block;
+        padding: 5px 0;
+    }
+}
+
+
 /* Social Links */
 .social-links {
     margin-top: 20px;
