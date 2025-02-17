@@ -81,7 +81,11 @@
     
     <!-- Slide 1 -->
     <div class="carousel-item active">
-      <video class="d-block w-100 video-placeholder" muted playsinline preload="none" poster="images/1.jpg"></video>
+      <video class="d-block w-100 lazy-video" muted playsinline preload="metadata" poster="images/1.jpg">
+        <source src="images/1.webm" type="video/webm">
+        <source src="images/1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <div class="carousel-container">
         <h2 class="home-title"><span class="highlight">Fairdebt Solutions</span></h2>
         <h2>Why Choose Fairdebt Solutions for Debt Collection?</h2>
@@ -92,7 +96,11 @@
 
     <!-- Slide 2 -->
     <div class="carousel-item">
-      <video class="d-block w-100 video-placeholder" muted playsinline preload="none" poster="images/2.jpg"></video>
+      <video class="d-block w-100 lazy-video" muted playsinline preload="metadata" poster="images/2.jpg">
+        <source src="images/2.webm" type="video/webm">
+        <source src="images/2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <div class="carousel-container">
         <h2 class="home-title"><span class="highlight">Fairdebt Solutions</span></h2>
         <h2>Redefining Customer Engagement & Debt Management</h2>
@@ -103,7 +111,11 @@
 
     <!-- Slide 3 -->
     <div class="carousel-item">
-      <video class="d-block w-100 video-placeholder" muted playsinline preload="none" poster="images/3.jpg"></video>
+      <video class="d-block w-100 lazy-video" muted playsinline preload="metadata" poster="images/3.jpg">
+        <source src="images/3.webm" type="video/webm">
+        <source src="images/3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <div class="carousel-container">
         <h2 class="home-title"><span class="highlight">Fairdebt Solutions</span></h2>
         <h2>Effortless Debt Recovery & Exceptional Customer Support</h2>
@@ -485,62 +497,26 @@
     });
   </script>
 
-<!-- JavaScript for Optimized Video Loading -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const videos = document.querySelectorAll(".video-placeholder");
-    const videoSources = [
-      { mp4: "images/1.mp4", webm: "images/1.webm" },
-      { mp4: "images/2.mp4", webm: "images/2.webm" },
-      { mp4: "images/3.mp4", webm: "images/3.webm" }
-    ];
+  <!-- JavaScript for Lazy Loading -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const videos = document.querySelectorAll(".lazy-video");
 
-    function loadVideo(video, sources) {
-      // Check if the video has already been loaded
-      if (video.dataset.loaded) return;
-      
-      const sourceMp4 = document.createElement("source");
-      sourceMp4.src = sources.mp4;
-      sourceMp4.type = "video/mp4";
-
-      const sourceWebm = document.createElement("source");
-      sourceWebm.src = sources.webm;
-      sourceWebm.type = "video/webm";
-
-      video.appendChild(sourceWebm);
-      video.appendChild(sourceMp4);
-      video.dataset.loaded = "true"; // Mark as loaded
-    }
-
-    function playActiveVideo() {
-      videos.forEach(video => video.pause()); // Pause all videos
-      const activeSlide = document.querySelector(".carousel-item.active video");
-      if (activeSlide) {
-        const index = [...videos].indexOf(activeSlide);
-        loadVideo(activeSlide, videoSources[index]); // Load only when visible
-        activeSlide.play();
-      }
-    }
-
-    // Detect when slides change
-    document.getElementById("hero-carousel").addEventListener("slid.bs.carousel", playActiveVideo);
-
-    // Lazy load videos when they come into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const index = [...videos].indexOf(entry.target);
-          loadVideo(entry.target, videoSources[index]);
+      function playActiveVideo() {
+        videos.forEach(video => video.pause()); // Pause all videos
+        const activeSlide = document.querySelector(".carousel-item.active video");
+        if (activeSlide) {
+          activeSlide.play();
         }
-      });
-    }, { threshold: 0.5 });
+      }
 
-    videos.forEach(video => observer.observe(video));
+      // Play video when the carousel slides
+      document.getElementById("hero-carousel").addEventListener("slid.bs.carousel", playActiveVideo);
 
-    // Load and play first video initially
-    playActiveVideo();
-  });
-</script>
+      // Start playing the first video immediately
+      playActiveVideo();
+    });
+  </script>
 
     <!-- Back to Top Button -->
     <button
