@@ -78,12 +78,12 @@
 <!-- Hero Section -->
 <section id="hero" class="hero section dark-background">
   <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
+    
     <!-- Slide 1 -->
     <div class="carousel-item active">
-      <video class="d-block w-100 lazy-video" autoplay loop muted playsinline preload="auto" poster="images/1.jpg">
-        <source src="images/1.mp4" type="video/mp4">
+      <video class="d-block w-100 lazy-video" muted playsinline preload="metadata" poster="images/1.jpg">
         <source src="images/1.webm" type="video/webm">
+        <source src="images/1.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div class="carousel-container">
@@ -96,9 +96,9 @@
 
     <!-- Slide 2 -->
     <div class="carousel-item">
-      <video class="d-block w-100 lazy-video" autoplay loop muted playsinline preload="auto" poster="images/2.jpg">
-        <source src="images/2.mp4" type="video/mp4">
+      <video class="d-block w-100 lazy-video" muted playsinline preload="metadata" poster="images/2.jpg">
         <source src="images/2.webm" type="video/webm">
+        <source src="images/2.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div class="carousel-container">
@@ -111,9 +111,9 @@
 
     <!-- Slide 3 -->
     <div class="carousel-item">
-      <video class="d-block w-100 lazy-video" autoplay loop muted playsinline preload="auto" poster="images/3.jpg">
-        <source src="images/3.mp4" type="video/mp4">
+      <video class="d-block w-100 lazy-video" muted playsinline preload="metadata" poster="images/3.jpg">
         <source src="images/3.webm" type="video/webm">
+        <source src="images/3.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div class="carousel-container">
@@ -497,15 +497,26 @@
     });
   </script>
 
-  <!-- Lazy Load Videos -->
-  <!-- <script>
+  <!-- JavaScript for Lazy Loading -->
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
-      let videos = document.querySelectorAll(".lazy-video");
-      videos.forEach(video => {
-        video.load();
-      });
+      const videos = document.querySelectorAll(".lazy-video");
+
+      function playActiveVideo() {
+        videos.forEach(video => video.pause()); // Pause all videos
+        const activeSlide = document.querySelector(".carousel-item.active video");
+        if (activeSlide) {
+          activeSlide.play();
+        }
+      }
+
+      // Play video when the carousel slides
+      document.getElementById("hero-carousel").addEventListener("slid.bs.carousel", playActiveVideo);
+
+      // Start playing the first video immediately
+      playActiveVideo();
     });
-  </script> -->
+  </script>
 
     <!-- Back to Top Button -->
     <button
