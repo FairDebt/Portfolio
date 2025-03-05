@@ -303,13 +303,11 @@ body, html {
     margin-top: 40px;
     padding: 20px;
     background-color: #f8f9fa;
-    /* border-left: 5px solid #028285; */
     font-size: 1.1rem;
-    text-align: justify;
-}
-
-.company-info strong {
-    color: #028285;
+    text-align: center; /* Center-align text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Responsive Styles */
