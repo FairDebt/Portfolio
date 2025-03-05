@@ -300,14 +300,14 @@ body, html {
 
 /* Company Info */
 .company-info {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    font-size: 1.1rem;
-    text-align: center; /* Center-align text */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Center text inside */
+    background-color: #f8f9fa; /* Optional background */
+    padding: 20px;
+    font-size: 1.1rem;
 }
 
 /* Responsive Styles */
