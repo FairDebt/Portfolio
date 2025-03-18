@@ -1276,25 +1276,19 @@ ul li {
     transform: scale(1.05);
 }
 
-/* Modern Modal Container */
-.modal {
-    display: none;
+  .modal {
+    display: none; /* Modal hidden initially */
     position: fixed;
-    z-index: 9999;
+    z-index: 1050;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.6); /* Dark overlay with blur */
-    display: flex;
-    justify-content: center;
     align-items: center;
-    animation: fadeBackdrop 0.4s ease-in-out;
-}
-
-/* Modal Content with Glassmorphism & Soft Glow */
-.modal-content {
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .modal-content {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
@@ -1307,10 +1301,8 @@ ul li {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     animation: slideIn 0.5s ease;
     position: relative;
-}
-
-/* Close Button Modern */
-.close {
+  }
+  .close {
     position: absolute;
     top: 15px;
     right: 20px;
@@ -1318,15 +1310,12 @@ ul li {
     cursor: pointer;
     color: #fff;
     transition: transform 0.2s ease, color 0.3s ease;
-}
-
-.close:hover {
+  }
+  .close:hover {
     color: #ff4c60;
     transform: rotate(90deg) scale(1.2);
-}
-
-/* CTA Button Inside Modal */
-.modal-content .modal-btn {
+  }
+  .modal-content .modal-btn {
     margin-top: 20px;
     padding: 12px 25px;
     border: none;
@@ -1336,31 +1325,21 @@ ul li {
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.modal-content .modal-btn:hover {
+  }
+  .modal-content .modal-btn:hover {
     background: linear-gradient(135deg, #6C63FF, #ff4c60);
     transform: translateY(-3px);
-}
-
-/* Backdrop Fade */
-@keyframes fadeBackdrop {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Slide-In Modal */
-@keyframes slideIn {
+  }
+  @keyframes slideIn {
     0% {
-        opacity: 0;
-        transform: translateY(-30px) scale(0.95);
+      opacity: 0;
+      transform: translateY(-30px) scale(0.95);
     }
     100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
-}
-
+  }
 
 /* Responsive Design */
 @media (max-width: 992px) {
