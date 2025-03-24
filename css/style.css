@@ -14,13 +14,20 @@ body, html {
 
 /* Navbar Styling */
 #navbar-top {
-    position: sticky;
+    position: -ms-page; /* Changed from fixed to absolute so it scrolls up */
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-    background-color: #ffffff;
-    padding: 5px 0; /* Reduce padding to make it slimmer */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Slightly reduce shadow */
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    padding: 10px 20px; /* Adjusted padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .link-group a {
     color: #1f7bfc(232, 248, 7); /* Default color */
     transition: color 0.3s ease, transform 0.2s ease; /* Smooth transition */
