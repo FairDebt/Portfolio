@@ -1014,7 +1014,7 @@ ul li {
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: #fca61f;
+    background-color: #1f7bfc;
     transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -1373,7 +1373,7 @@ ul li {
   }
 
   .footer a:hover {
-    color: #fca61f;
+    color: #1f7bfc;
   }
 
   .social-icon {
